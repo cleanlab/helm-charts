@@ -15,7 +15,7 @@ chat_backend:
 
   image:
     repository: tlmcleanlab.azurecr.io/tlm/chat-backend
-    tag: "0.1.46"  # this placeholder will be overridden by terraform
+    tag: "0.1.46"
     pullPolicy: IfNotPresent
 
   container:
@@ -38,3 +38,5 @@ chat_backend:
   # Environment variables to set on the container
   # e.g: TLM_DEFAULT_MODEL_API_BASE=https://<your-resource-name>.openai.azure.com/
   defaults: {}
+
+  models: {}
