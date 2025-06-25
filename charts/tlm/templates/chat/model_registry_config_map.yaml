@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "tlm.fullname" . }}-model-registry
+  name: {{ include "tlm.name" . }}-model-registry
   labels:
     {{- include "tlm.labels" . | nindent 4 }}
 data:

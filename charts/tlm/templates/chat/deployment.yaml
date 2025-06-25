@@ -24,7 +24,7 @@ spec:
       volumes:
         - name: model-registry-volume
           configMap:
-            name: {{ include "tlm.fullname" . }}-model-registry
+            name: {{ include "tlm.name" . }}-model-registry
       containers:
         - name: {{ .Chart.Name }}-chat-backend
           {{if .Values.chat_backend.image.tag }}
