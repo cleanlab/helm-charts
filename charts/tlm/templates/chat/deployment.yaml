@@ -21,6 +21,10 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret.name }}
       {{- end }}
+      volumes:
+        - name: model-registry-volume
+          configMap:
+            name: {{ include "tlm.name" . }}-model-registry
       containers:
         - name: {{ .Chart.Name }}-chat-backend
           {{if .Values.chat_backend.image.tag }}
@@ -29,6 +33,9 @@ spec:
           image: "{{ .Values.chat_backend.image.repository }}:{{ .Chart.Version }}"
           {{end}}
           imagePullPolicy: {{ .Values.chat_backend.image.pullPolicy }}
+          volumeMounts:
+            - name: model-registry-volume
+              mountPath: /app/models.json
           ports:
             - name: http
               containerPort: {{ .Values.chat_backend.container.port }}
@@ -42,6 +49,8 @@ spec:
               value: "{{ .Values.chat_backend.num_proxies }}"
             - name: ENVIRONMENT
               value: "{{ .Values.environment }}"
+            - name: MODEL_REGISTRY_FILE
+              value: "/app/models.json"
           envFrom:
             {{- if .Values.chat_backend.secret_name }}
             - secretRef:
