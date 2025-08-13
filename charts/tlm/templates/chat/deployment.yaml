@@ -51,6 +51,10 @@ spec:
               value: "{{ .Values.environment }}"
             - name: MODEL_REGISTRY_FILE
               value: "/app/models.json"
+            - name: AWS_REGION
+              value: "{{ .Values.chat_backend.aws_region }}"
+            - name: AWS_DEFAULT_REGION
+              value: "{{ .Values.chat_backend.aws_region }}"
           envFrom:
             {{- if .Values.chat_backend.secret_name }}
             - secretRef:
