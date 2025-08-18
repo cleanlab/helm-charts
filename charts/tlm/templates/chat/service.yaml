@@ -4,8 +4,10 @@ metadata:
   name: {{ .Release.Name }}-chat-backend
   labels:
     {{- include "tlm.labels" . | nindent 4 }}
+  {{- if .Values.chat_backend.service.annotations }}
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    {{- toYaml .Values.chat_backend.service.annotations | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.chat_backend.service.type }}
   ports:
