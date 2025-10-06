@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   tlm:
   - apiVersion: v2
+    appVersion: 0.1.9
+    created: "2025-10-06T22:36:08.006757403Z"
+    description: TLM App - Chat
+    digest: 6e7918d1f6c437b308ceb329eddc42305461c4f25ee92194b2591ceaa4842a57
+    name: tlm
+    type: application
+    urls:
+    - https://github.com/cleanlab/helm-charts/releases/download/tlm-0.1.61/tlm-0.1.61.tgz
+    version: 0.1.61
+  - apiVersion: v2
     appVersion: 0.1.8
     created: "2025-10-01T16:34:58.151527657Z"
     description: TLM App - Chat
@@ -121,4 +131,4 @@ entries:
     urls:
     - https://github.com/cleanlab/helm-charts/releases/download/tlm-0.1.49/tlm-0.1.49.tgz
     version: 0.1.49
-generated: "2025-10-01T16:34:58.151571268Z"
+generated: "2025-10-06T22:36:08.006880714Z"
